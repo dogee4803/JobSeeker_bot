@@ -1,0 +1,59 @@
+{
+  "positions" : [ {
+    "id" : "/Start",
+    "x" : 290,
+    "y" : 1320
+  }, {
+    "id" : "/Hello",
+    "x" : 290,
+    "y" : 2095
+  }, {
+    "id" : "/Survey",
+    "x" : 1070,
+    "y" : 868
+  }, {
+    "id" : "/AwaitRegion",
+    "x" : 290,
+    "y" : 2753
+  }, {
+    "id" : "/AwaitCity",
+    "x" : 290,
+    "y" : 3467
+  }, {
+    "id" : "/AwaitEmployment",
+    "x" : 290,
+    "y" : 4202
+  }, {
+    "id" : "/AwaitSalary",
+    "x" : 290,
+    "y" : 4948
+  }, {
+    "id" : "/SurveyComplete",
+    "x" : 290,
+    "y" : 5683
+  }, {
+    "id" : "/HandleApiResponse",
+    "x" : 1096,
+    "y" : 1806
+  }, {
+    "id" : "/Bye",
+    "x" : 290,
+    "y" : 6466
+  }, {
+    "id" : "/NoMatch",
+    "x" : 290,
+    "y" : 7360
+  }, {
+    "id" : "/Profanity",
+    "x" : 290,
+    "y" : 8338
+  }, {
+    "id" : "/ProfanityAlt",
+    "x" : 290,
+    "y" : 9337
+  }, {
+    "id" : "/Survey/AwaitJob",
+    "x" : 290,
+    "y" : 752
+  } ]
+}

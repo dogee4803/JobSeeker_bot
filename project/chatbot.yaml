@@ -1,0 +1,16 @@
+# Название проекта
+name: zb-cailapub
+# Точка входа
+entryPoint: main.sc
+# Параметры NLU:
+botEngine: v2
+language: ru
+
+tests:
+  include:
+    - test.xml
+
+nlp:
+  intentNoMatchThresholds:
+    phrases: 0.2
+    patterns: 0.2

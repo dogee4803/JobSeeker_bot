@@ -1,0 +1,777 @@
+{
+  "project" : {
+    "id" : "bot_dlya_soiskatelya-1000173469-sAT",
+    "name" : "bot_dlya_soiskatelya-1000173469-sAT",
+    "folder" : "/platform"
+  },
+  "settings" : {
+    "language" : "ru",
+    "spellingCorrection" : true,
+    "classificationAlgorithm" : "sts",
+    "timezone" : "Europe/Moscow",
+    "extendedSettings" : {
+      "classificationAlgorithmVersion" : 1.0,
+      "tokenizerEngine" : "mystem",
+      "allowedPatterns" : [ ],
+      "useShared" : false
+    },
+    "shared" : false,
+    "validation" : {
+      "phraseValidationEnabled" : true,
+      "answerValidationEnabled" : true,
+      "phraseValidationThreshold" : 0.5,
+      "answerValidationThreshold" : 0.8
+    }
+  },
+  "intents" : [ {
+    "path" : "/анкета",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "анкета"
+    }, {
+      "text" : "заполнить"
+    }, {
+      "text" : "записать"
+    }, {
+      "text" : "заполнить анкету"
+    }, {
+      "text" : "анкетирование"
+    }, {
+      "text" : "опрос"
+    }, {
+      "text" : "прохождение опроса"
+    }, {
+      "text" : "тест"
+    }, {
+      "text" : "тестирование"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "slots" : [ ],
+    "priority" : 0
+  }, {
+    "path" : "/поиск",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "поиск"
+    }, {
+      "text" : "найди работу"
+    }, {
+      "text" : "хочу найти работу"
+    }, {
+      "text" : "вакансии"
+    }, {
+      "text" : "подбери вакансии"
+    }, {
+      "text" : "выведи вакансии"
+    }, {
+      "text" : "выведи список"
+    }, {
+      "text" : "подбери для меня список вакансий"
+    }, {
+      "text" : "мне нужна работа"
+    }, {
+      "text" : "я хочу найти работу"
+    }, {
+      "text" : "найди мне работу"
+    }, {
+      "text" : "покажи мне работу"
+    }, {
+      "text" : "покажи мне вакансии"
+    }, {
+      "text" : "подбери мне вакансии"
+    }, {
+      "text" : "помоги мне найти работу"
+    }, {
+      "text" : "хочу найти работу"
+    }, {
+      "text" : "поиск вакансий"
+    }, {
+      "text" : "поиск работы"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "slots" : [ ],
+    "priority" : 0
+  }, {
+    "path" : "/пока",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "пока"
+    }, {
+      "text" : "До свидания"
+    }, {
+      "text" : "покеда"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
+  }, {
+    "path" : "/привет",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "привет"
+    }, {
+      "text" : "здраствуйте"
+    }, {
+      "text" : "здрасте"
+    }, {
+      "text" : "hi"
+    }, {
+      "text" : "прив"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "priority" : 0
+  }, {
+    "path" : "/рекомендация",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "Что сейчас в тренде?"
+    }, {
+      "text" : "Что популярно?"
+    }, {
+      "text" : "Дай список популярных работ."
+    }, {
+      "text" : "Подбери что-нибудь популярное."
+    }, {
+      "text" : "дай рекомендацию"
+    }, {
+      "text" : "рекомендация"
+    }, {
+      "text" : "порекомендуй"
+    } ],
+    "classificationRules" : {
+      "refs" : [ ]
+    },
+    "patterns" : [ ],
+    "slots" : [ {
+      "name" : "sphere",
+      "entity" : "sphere",
+      "required" : true,
+      "prompts" : [ "В какой сфере работаете?" ]
+    }, {
+      "name" : "area",
+      "entity" : "area",
+      "required" : true,
+      "prompts" : [ "В какой области данной сферы работаете?" ]
+    } ],
+    "priority" : 0
+  } ],
+  "entities" : [ {
+    "entity" : {
+      "name" : "region",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : false,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : true,
+      "client" : false,
+      "hidden" : false
+    },
+    "records" : [ {
+      "type" : "synonyms",
+      "rule" : [ "Республика Адыгея", "Адыгея" ],
+      "value" : "{\"name\":\"Республика Адыгея\",\"code\":\"01\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Республика Алтай", "Алтай" ],
+      "value" : "{\"name\":\"Республика Алтай\",\"code\":\"04\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Республика Башкортостан", "Башкирия" ],
+      "value" : "{\"name\":\"Республика Башкортостан\",\"code\":\"02\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Республика Бурятия", "Бурятия" ],
+      "value" : "{\"name\":\"Республика Бурятия\",\"code\":\"03\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Республика Дагестан", "Дагестан" ],
+      "value" : "{\"name\":\"Республика Дагестан\",\"code\":\"05\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Донецкая Народная Республика", "ДНР" ],
+      "value" : "{\"name\":\"Донецкая Народная Республика\",\"code\":\"80\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Республика Ингушетия", "Ингушетия" ],
+      "value" : "{\"name\":\"Республика Ингушетия\",\"code\":\"06\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Кабардино-Балкарская Республика", "Кабардино-Балкария" ],
+      "value" : "{\"name\":\"Кабардино-Балкарская Республика\",\"code\":\"07\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Республика Калмыкия", "Калмыкия" ],
+      "value" : "{\"name\":\"Республика Калмыкия\",\"code\":\"08\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Карачаево-Черкесская Республика", "Карачаево-Черкесская" ],
+      "value" : "{\"name\":\"Карачаево-Черкесская Республика\",\"code\":\"09\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Республика Карелия", "Карелия" ],
+      "value" : "{\"name\":\"Республика Карелия\",\"code\":\"10\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Республика Коми", "Коми" ],
+      "value" : "{\"name\":\"Республика Коми\",\"code\":\"11\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Республика Крым", "Крым" ],
+      "value" : "{\"name\":\"Республика Крым\",\"code\":\"91\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Луганская Народная Республика", "ЛНР" ],
+      "value" : "{\"name\":\"Луганская Народная Республика\",\"code\":\"94\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Республика Марий Эл", "Марий Эл" ],
+      "value" : "{\"name\":\"Республика Марий Эл\",\"code\":\"12\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Республика Мордовия", "Мордовия" ],
+      "value" : "{\"name\":\"Республика Мордовия\",\"code\":\"13\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Республика Саха", "Якутия" ],
+      "value" : "{\"name\":\"Республика Саха (Якутия)\",\"code\":\"14\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Республика Северная Осетия — Алания", "Осетия" ],
+      "value" : "{\"name\":\"Республика Северная Осетия — Алания\",\"code\":\"15\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Республика Татарстан", "Татарстан" ],
+      "value" : "{\"name\":\"Республика Татарстан\",\"code\":\"16\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Республика Тыва", "Тыва" ],
+      "value" : "{\"name\":\"Республика Тыва\",\"code\":\"17\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Удмуртская Республика", "Удмуртия" ],
+      "value" : "{\"name\":\"Удмуртская Республика\",\"code\":\"18\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Республика Хакасия", "Хакасия" ],
+      "value" : "{\"name\":\"Республика Хакасия\",\"code\":\"19\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Чеченская Республика", "Чечня" ],
+      "value" : "{\"name\":\"Чеченская Республика\",\"code\":\"20\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Чувашская Республика", "Чувашия" ],
+      "value" : "{\"name\":\"Чувашская Республика\",\"code\":\"21\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Алтайский край", "Алтай" ],
+      "value" : "{\"name\":\"Алтайский край\",\"code\":\"22\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Забайкальский край", "Забайкалье" ],
+      "value" : "{\"name\":\"Забайкальский край\",\"code\":\"75\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Камчатский край", "Камчатка" ],
+      "value" : "{\"name\":\"Камчатский край\",\"code\":\"41\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Краснодарский край", "Краснодар" ],
+      "value" : "{\"name\":\"Краснодарский край\",\"code\":\"23\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Красноярский край", "Красноярск" ],
+      "value" : "{\"name\":\"Красноярский край\",\"code\":\"24\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Пермский край", "Пермь" ],
+      "value" : "{\"name\":\"Пермский край\",\"code\":\"59\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Приморский край", "Приморье" ],
+      "value" : "{\"name\":\"Приморский край\",\"code\":\"25\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Ставропольский край", "Ставрополье" ],
+      "value" : "{\"name\":\"Приморский край\",\"code\":\"26\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Хабаровский край", "Хабаровск" ],
+      "value" : "{\"name\":\"Хабаровский край\",\"code\":\"27\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Амурская область", "Амур" ],
+      "value" : "{\"name\":\"Амурская область\",\"code\":\"28\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Архангельская область", "Архангельск" ],
+      "value" : "{\"name\":\"Архангельская область\",\"code\":\"29\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Астраханская область", "Астрахань" ],
+      "value" : "{\"name\":\"Астраханская область\",\"code\":\"30\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Белгородская область", "Белгород" ],
+      "value" : "{\"name\":\"Белгородская область\",\"code\":\"31\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Брянская область", "Брянск" ],
+      "value" : "{\"name\":\"Брянская область\",\"code\":\"32\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Владимирская область", "Владимир" ],
+      "value" : "{\"name\":\"Владимирская область\",\"code\":\"33\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Волгоградская область", "Волгоград" ],
+      "value" : "{\"name\":\"Волгоградская область\",\"code\":\"34\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Вологодская область", "Вологда" ],
+      "value" : "{\"name\":\"Вологодская область\",\"code\":\"35\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Воронежская область", "Воронеж" ],
+      "value" : "{\"name\":\"Воронежская область\",\"code\":\"36\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Ивановская область", "Иваново" ],
+      "value" : "{\"name\":\"Ивановская область\",\"code\":\"37\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Иркутская область", "Иркутск" ],
+      "value" : "{\"name\":\"Иркутская область\",\"code\":\"38\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Калининградская область", "Калининград" ],
+      "value" : "{\"name\":\"Калининградская область\",\"code\":\"39\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Калужская область", "Калуга" ],
+      "value" : "{\"name\":\"Калужская область\",\"code\":\"40\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Кемеровская область — Кузбасс", "Кузбасс", "Кемерово" ],
+      "value" : "{\"name\":\"Кемеровская область — Кузбасс\",\"code\":\"42\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Кировская область", "Киров" ],
+      "value" : "{\"name\":\"Кировская область\",\"code\":\"43\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Костромская область", "Кострома" ],
+      "value" : "{\"name\":\"Костромская область\",\"code\":\"44\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Курганская область", "Курган", "Зауралье" ],
+      "value" : "{\"name\":\"Курганская область\",\"code\":\"45\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Курская область", "Курск" ],
+      "value" : "{\"name\":\"Курская область\",\"code\":\"46\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Ленинградская область", "Санкт-Петербургом", "Ленинград" ],
+      "value" : "{\"name\":\"Ленинградская область\",\"code\":\"47\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Липецкая область", "Липецк" ],
+      "value" : "{\"name\":\"Липецкая область\",\"code\":\"48\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Магаданская область", "Магадан" ],
+      "value" : "{\"name\":\"Магаданская область\",\"code\":\"49\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Московская область", "Подмосковье" ],
+      "value" : "{\"name\":\"Московская область\",\"code\":\"50\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Мурманская область", "Мурманск" ],
+      "value" : "{\"name\":\"Мурманская область\",\"code\":\"51\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Нижегородская область", "Нижний Новгород" ],
+      "value" : "{\"name\":\"Нижегородская область\",\"code\":\"52\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Новгородская область", "Великий Новгород" ],
+      "value" : "{\"name\":\"Новгородская область\",\"code\":\"53\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Омская область", "Омск" ],
+      "value" : "{\"name\":\"Омская область\",\"code\":\"55\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Оренбургская область", "Оренбург" ],
+      "value" : "{\"name\":\"Оренбургская область\",\"code\":\"56\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Орловская область", "Орел", "Орёл" ],
+      "value" : "{\"name\":\"Орловская область\",\"code\":\"57\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Пензенская область", "Пенза" ],
+      "value" : "{\"name\":\"Пензенская область\",\"code\":\"58\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Псковская область", "Псков" ],
+      "value" : "{\"name\":\"Псковская область\",\"code\":\"60\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Ростовская область", "Ростов" ],
+      "value" : "{\"name\":\"Ростовская область\",\"code\":\"61\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Рязанская область", "Рязань" ],
+      "value" : "{\"name\":\"Ростовская область\",\"code\":\"62\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Самарская область", "Самара" ],
+      "value" : "{\"name\":\"Самарская область\",\"code\":\"63\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Саратовская область", "Саратов" ],
+      "value" : "{\"name\":\"Саратовская область\",\"code\":\"64\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Сахалинская область", "Сахалин" ],
+      "value" : "{\"name\":\"Сахалинская область\",\"code\":\"65\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Свердловская область", "Свердловск" ],
+      "value" : "{\"name\":\"Свердловская область\",\"code\":\"66\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Смоленская область", "Смоленск" ],
+      "value" : "{\"name\":\"Смоленская область\",\"code\":\"67\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Тамбовская область", "Тамбов" ],
+      "value" : "{\"name\":\"Тамбовская область\",\"code\":\"68\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Тверская область", "Тверь" ],
+      "value" : "{\"name\":\"Тверская область\",\"code\":\"69\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Томская область", "Томск" ],
+      "value" : "{\"name\":\"Томская область\",\"code\":\"70\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Тульская область", "Тула" ],
+      "value" : "{\"name\":\"Тульская область\",\"code\":\"71\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Тюменская область", "Тюмень" ],
+      "value" : "{\"name\":\"Тюменская область\",\"code\":\"72\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Ульяновская область", "Ульяновск" ],
+      "value" : "{\"name\":\"Ульяновская область\",\"code\":\"73\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Ульяновская область", "Ульяновск" ],
+      "value" : "{\"name\":\"Ульяновская область\",\"code\":\"73\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Челябинская область", "Челябинск", "Челяба" ],
+      "value" : "{\"name\":\"Челябинская область\",\"code\":\"74\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Ярославская область", "Ярославль" ],
+      "value" : "{\"name\":\"Ярославская область\",\"code\":\"76\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Москва", "мск" ],
+      "value" : "{\"name\":\"Москва\",\"code\":\"77\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Санкт-Петербург", "спб" ],
+      "value" : "{\"name\":\"Санкт-Петербург\",\"code\":\"78\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Новосибирская область", "Новосибирск", "Новосиб" ],
+      "value" : "{\"name\":\"Новосибирская область\",\"code\":\"54\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Еврейская автономная область" ],
+      "value" : "{\"name\":\"Еврейская автономная область\",\"code\":\"79\"}"
+    } ]
+  }, {
+    "entity" : {
+      "name" : "sphere",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : false,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : true,
+      "client" : false,
+      "hidden" : false
+    },
+    "records" : [ {
+      "type" : "synonyms",
+      "rule" : [ "Мед", "Медицина" ],
+      "value" : "{\n  \"name\": \"Медицина\"\n}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "IT", "Айти" ],
+      "value" : "{\n  \"name\": \"IT\"\n}"
+    } ]
+  }, {
+    "entity" : {
+      "name" : "employment",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : false,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : true,
+      "client" : false,
+      "hidden" : false
+    },
+    "records" : [ {
+      "type" : "pattern",
+      "rule" : [ "(частичная|частичная\\s*занятость|частичная\\s*работа|неполный|неполная\\s*занятость|неполная\\s*работа|парттайм|парт\\s*-?\\s*time|part\\s*-?\\s*time|парт\\s*работа|парт\\s*тайм|частич\\s*ка|чстчн\\s*ая)" ],
+      "value" : "{\n  \"name\": \"Частичная занятость\"\n}"
+    }, {
+      "type" : "pattern",
+      "rule" : [ "(полная|полный|полн|на\\s*полную|фултайм|фуллтайм|full\\s*-?\\s*time|фулл|на\\s*полн)" ],
+      "value" : "{\n  \"name\": \"Полная занятость\"\n}"
+    }, {
+      "type" : "pattern",
+      "rule" : [ "(временная|временная\\s*занятость|временная\\s*работа|на\\s*время|времянка|врем\\s*енная|времнная|врем\\s*работа|врем\\s*ка|врм|врем)" ],
+      "value" : "{\n  \"name\": \"Временная\"\n}"
+    } ]
+  }, {
+    "entity" : {
+      "name" : "profession",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : false,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : true,
+      "client" : false,
+      "hidden" : false
+    },
+    "records" : [ {
+      "type" : "synonyms",
+      "rule" : [ "Программист", "кодер" ],
+      "value" : "{\"name\":\"Программист\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Хирург" ],
+      "value" : "{\"name\":\"Хирург\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Учитель", "препод" ],
+      "value" : "{\"name\":\"Учитель\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Водитель", "водила" ],
+      "value" : "{\"name\":\"Водитель\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Кассир" ],
+      "value" : "{\"name\":\"Кассир\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Охранник", "охрана", "охраник" ],
+      "value" : "{\"name\":\"Охранник\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Педиатр" ],
+      "value" : "{\"name\":\"Педиатр\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Художник", "художница" ],
+      "value" : "{\"name\":\"Художник\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Бармен" ],
+      "value" : "{\"name\":\"Бармен\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Бариста" ],
+      "value" : "{\"name\":\"Бариста\"}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Уборщик", "уборщица" ],
+      "value" : "{\"name\":\"уборщик\"}"
+    } ]
+  }, {
+    "entity" : {
+      "name" : "area",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : false,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : true,
+      "client" : false,
+      "hidden" : false
+    },
+    "records" : [ {
+      "type" : "synonyms",
+      "rule" : [ "Аналитика", "Анализ" ],
+      "value" : "{\n  \"name\": \"Аналитика\"\n}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Создание сайтов", "Web", "Web-программирование", "Разработка сайтов", "сайты" ],
+      "value" : "{\n  \"name\": \"Создание сайтов\"\n}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Машинное обучение", "Machine learning", "Neural Networks", "Нейросети" ],
+      "value" : "{\n  \"name\": \"Машинное обучение\"\n}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Стоматология", "Зубовыдерание" ],
+      "value" : "{\n  \"name\": \"Стоматология\"\n}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Педиатрия", "Педиатр" ],
+      "value" : "{\n  \"name\": \"Педиатрия\"\n}"
+    }, {
+      "type" : "synonyms",
+      "rule" : [ "Хирургия", "Хирург" ],
+      "value" : "{\n  \"name\": \"Хирургия\"\n}"
+    } ]
+  } ],
+  "enabledSystemEntities" : [ "mystem.obsc", "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url", "mlps-obscene.obscene" ],
+  "spellerDictionary" : [ ],
+  "systemEntities" : [ {
+    "name" : "mystem.geo",
+    "enabled" : false
+  }, {
+    "name" : "mystem.persn",
+    "enabled" : false
+  }, {
+    "name" : "mystem.obsc",
+    "enabled" : true
+  }, {
+    "name" : "mystem.patrn",
+    "enabled" : false
+  }, {
+    "name" : "mystem.famn",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.romn",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.latn",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.numb",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.intg",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.abbr",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.name",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.surn",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.patr",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.geox",
+    "enabled" : false
+  }, {
+    "name" : "pymorphy.orgn",
+    "enabled" : false
+  }, {
+    "name" : "duckling.number",
+    "version" : "v2",
+    "enabled" : true
+  }, {
+    "name" : "duckling.ordinal",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.amount-of-money",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.distance",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.time",
+    "version" : "v2",
+    "enabled" : true
+  }, {
+    "name" : "duckling.date",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.time-of-day",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "duckling.duration",
+    "version" : "v2",
+    "enabled" : true
+  }, {
+    "name" : "duckling.phone-number",
+    "version" : "v2",
+    "enabled" : true
+  }, {
+    "name" : "duckling.email",
+    "version" : "v2",
+    "enabled" : true
+  }, {
+    "name" : "duckling.url",
+    "version" : "v2",
+    "enabled" : true
+  }, {
+    "name" : "duckling.interval",
+    "version" : "v2",
+    "enabled" : false
+  }, {
+    "name" : "mlps-obscene.obscene",
+    "enabled" : true
+  }, {
+    "name" : "zb.datetime",
+    "enabled" : false
+  }, {
+    "name" : "zb.number",
+    "enabled" : false
+  } ],
+  "faq" : [ ],
+  "skills" : [ ]
+}
